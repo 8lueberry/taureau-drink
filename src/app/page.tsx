@@ -26,6 +26,13 @@ export default function Home() {
     setDraggedIngredient(null);
   };
 
+  const handleDropOnIngredients = () => {
+    if (draggedIngredient && selectedIngredients.includes(draggedIngredient)) {
+      setSelectedIngredients(selectedIngredients.filter((ing) => ing !== draggedIngredient));
+    }
+    setDraggedIngredient(null);
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 p-8 font-sans dark:bg-black">
       <main className="mx-auto max-w-4xl">
@@ -33,7 +40,11 @@ export default function Home() {
           Cocktail Ingredients
         </h1>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <div
+            className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+            onDragOver={handleDragOver}
+            onDrop={handleDropOnIngredients}
+          >
             <h2 className="mb-4 text-xl font-semibold text-black dark:text-zinc-50">
               Ingredients
             </h2>
@@ -68,7 +79,9 @@ export default function Home() {
               {selectedIngredients.map((ingredient) => (
                 <li
                   key={ingredient}
-                  className="rounded-md px-4 py-2 text-zinc-800 dark:text-zinc-200"
+                  draggable
+                  onDragStart={() => handleDragStart(ingredient)}
+                  className="cursor-move rounded-md px-4 py-2 text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
                 >
                   {ingredient}
                 </li>

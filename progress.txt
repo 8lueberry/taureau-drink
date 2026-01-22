@@ -17,3 +17,12 @@
 - Verified typecheck passes with npm run typecheck
 - Verified tests pass with npm test
 - All acceptance criteria for US-002 are met
+
+2026-01-22: Implemented US-003 (Move ingredients back to ingredients list)
+- Added handleDropOnIngredients function to handle drops on Ingredients column
+- Added onDragOver and onDrop handlers to Ingredients column to accept dragged items
+- Made items in Selected list draggable by adding draggable attribute and onDragStart handler
+- Added cursor-move and hover styling to selected items for better UX
+- Verified typecheck passes with npm run typecheck
+- Verified tests pass with npm test
+- All acceptance criteria for US-003 are met

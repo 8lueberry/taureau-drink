@@ -1,0 +1,65 @@
+{
+  "project": "Drink Selection App",
+  "branchName": "ralph/drink-selection-app",
+  "description": "Select available alcohol and see matching cocktails via drag-and-drop lists.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "View ingredient list",
+      "description": "As a user, I want to see a list of common cocktail alcohol so that I can choose what I have available.",
+      "acceptanceCriteria": [
+        "Ingredients list renders from a static seed dataset in the repo",
+        "List items show ingredient name clearly",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Move ingredients to selected list",
+      "description": "As a user, I want to drag one or more ingredients into a selected list so that I can indicate what I have.",
+      "acceptanceCriteria": [
+        "Dragging an ingredient from Ingredients adds it to Selected",
+        "An ingredient appears in only one list at a time",
+        "Dragging multiple ingredients in sequence works without page reload",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Move ingredients back to ingredients list",
+      "description": "As a user, I want to remove items from Selected by dragging them back so that I can adjust my selection.",
+      "acceptanceCriteria": [
+        "Dragging an item from Selected to Ingredients removes it from Selected",
+        "Ingredients list restores the item in a consistent order",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Show matching cocktails",
+      "description": "As a user, I want to see cocktails that match my selected alcohol so that I know what I can make.",
+      "acceptanceCriteria": [
+        "Cocktails list updates whenever Selected changes",
+        "A cocktail appears if it has at least one ingredient in Selected",
+        "Empty state message appears when no cocktails match",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

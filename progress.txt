@@ -1,0 +1,6 @@
+2026-01-22: Implemented US-001 (View ingredient list)
+- Created src/data/ingredients.ts with static seed dataset of 11 cocktail alcohol ingredients
+- Updated src/app/page.tsx to display the ingredients list with proper styling
+- Verified typecheck passes with npm run typecheck
+- Verified in browser - ingredients list displays correctly showing all ingredients
+- All acceptance criteria for US-001 are met

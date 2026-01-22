@@ -4,3 +4,16 @@
 - Verified typecheck passes with npm run typecheck
 - Verified in browser - ingredients list displays correctly showing all ingredients
 - All acceptance criteria for US-001 are met
+
+2026-01-22: Implemented US-002 (Move ingredients to selected list)
+- Added "use client" directive for client-side rendering
+- Implemented React state management with useState for selectedIngredients and draggedIngredient
+- Created two-column grid layout with Ingredients and Selected lists
+- Implemented HTML5 drag-and-drop API with onDragStart, onDragOver, and onDrop handlers
+- Added cursor-move styling for draggable ingredients
+- Implemented logic to filter available ingredients so each appears in only one list
+- Added empty states for both lists
+- Added count indicator in Selected list header
+- Verified typecheck passes with npm run typecheck
+- Verified tests pass with npm test
+- All acceptance criteria for US-002 are met

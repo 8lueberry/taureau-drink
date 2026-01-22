@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ingredients, type Ingredient } from "../data/ingredients";
+import { cocktails, type Cocktail } from "../data/cocktails";
 
 export default function Home() {
   const [selectedIngredients, setSelectedIngredients] = useState<Ingredient[]>([]);
@@ -9,6 +10,10 @@ export default function Home() {
 
   const availableIngredients = ingredients.filter(
     (ing) => !selectedIngredients.includes(ing)
+  );
+
+  const matchingCocktails = cocktails.filter((cocktail) =>
+    cocktail.ingredients.some((ing) => selectedIngredients.includes(ing))
   );
 
   const handleDragStart = (ingredient: Ingredient) => {
@@ -93,6 +98,30 @@ export default function Home() {
               )}
             </ul>
           </div>
+        </div>
+
+        <div className="mt-6 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <h2 className="mb-4 text-xl font-semibold text-black dark:text-zinc-50">
+            Matching Cocktails ({matchingCocktails.length})
+          </h2>
+          <ul className="space-y-2">
+            {matchingCocktails.map((cocktail) => (
+              <li
+                key={cocktail.name}
+                className="rounded-md px-4 py-2 text-zinc-800 dark:text-zinc-200"
+              >
+                <div className="font-medium">{cocktail.name}</div>
+                <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                  {cocktail.ingredients.join(", ")}
+                </div>
+              </li>
+            ))}
+            {matchingCocktails.length === 0 && (
+              <li className="px-4 py-2 text-zinc-500 dark:text-zinc-400">
+                No cocktails match your selected ingredients
+              </li>
+            )}
+          </ul>
         </div>
       </main>
     </div>

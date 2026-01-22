@@ -26,3 +26,14 @@
 - Verified typecheck passes with npm run typecheck
 - Verified tests pass with npm test
 - All acceptance criteria for US-003 are met
+
+2026-01-22: Implemented US-004 (Show matching cocktails)
+- Created src/data/cocktails.ts with static seed dataset of 8 cocktails and their ingredients
+- Implemented matchingCocktails filter to show cocktails that have at least one ingredient in Selected
+- Added Matching Cocktails section below the two-column grid with count indicator
+- Each cocktail displays its name and ingredients list
+- Empty state message "No cocktails match your selected ingredients" when no cocktails match
+- Matching Cocktails section updates in real-time as ingredients are dragged to/from Selected
+- Verified typecheck passes with npm run typecheck
+- Verified in browser - cocktails list updates correctly when ingredients are selected/deselected, empty state appears when no matches
+- All acceptance criteria for US-004 are met

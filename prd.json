@@ -1,65 +1,89 @@
 {
-  "project": "Drink Selection App",
-  "branchName": "ralph/drink-selection-app",
-  "description": "Select available alcohol and see matching cocktails via drag-and-drop lists.",
+  "project": "Taureau Drink Selection App",
+  "branchName": "ralph/mobile-friendly",
+  "description": "Mobile-Friendly Drink Selection App - Enable seamless ingredient selection on mobile devices without requiring drag-and-drop, while maintaining existing desktop drag-and-drop experience",
   "userStories": [
     {
-      "id": "US-001",
-      "title": "View ingredient list",
-      "description": "As a user, I want to see a list of common cocktail alcohol so that I can choose what I have available.",
+      "id": "US-005",
+      "title": "Responsive layout for mobile screens",
+      "description": "As a mobile user, I want the app layout to adapt to my small screen so that I can see all sections clearly without horizontal scrolling.",
       "acceptanceCriteria": [
-        "Ingredients list renders from a static seed dataset in the repo",
-        "List items show ingredient name clearly",
+        "Layout stacks vertically on mobile screens (< 768px width)",
+        "All three sections (Ingredients, Selected, Cocktails) are fully visible and accessible",
+        "Text is readable without zooming (minimum 16px font size for body text)",
+        "Touch targets are at least 44x44px for easy tapping",
+        "Spacing and padding are appropriate for mobile viewing",
         "Typecheck passes",
-        "Verify in browser using dev-browser skill"
+        "Verify in browser using dev-browser skill with mobile viewport"
       ],
       "priority": 1,
       "passes": true,
-      "notes": ""
+      "notes": "Implemented responsive layout with mobile-first approach using Tailwind CSS breakpoints"
     },
     {
-      "id": "US-002",
-      "title": "Move ingredients to selected list",
-      "description": "As a user, I want to drag one or more ingredients into a selected list so that I can indicate what I have.",
+      "id": "US-006",
+      "title": "Tap to select ingredients on mobile",
+      "description": "As a mobile user, I want to tap ingredients to add them to my selected list so that I can use the app without needing to drag items.",
       "acceptanceCriteria": [
-        "Dragging an ingredient from Ingredients adds it to Selected",
-        "An ingredient appears in only one list at a time",
-        "Dragging multiple ingredients in sequence works without page reload",
+        "Tapping an ingredient in the Ingredients list adds it to the Selected list",
+        "Tapping an ingredient in the Selected list removes it and returns it to the Ingredients list",
+        "Visual feedback (e.g., highlight, animation) indicates when an ingredient is tapped",
+        "Interaction works on touch devices (iOS, Android)",
         "Typecheck passes",
-        "Verify in browser using dev-browser skill"
+        "Verify in browser using dev-browser skill with mobile viewport"
       ],
       "priority": 2,
       "passes": true,
-      "notes": ""
+      "notes": "Implemented tap handlers with visual feedback (scale and color transitions) on both ingredient lists"
     },
     {
-      "id": "US-003",
-      "title": "Move ingredients back to ingredients list",
-      "description": "As a user, I want to remove items from Selected by dragging them back so that I can adjust my selection.",
+      "id": "US-007",
+      "title": "Dual interaction modes (tap and drag)",
+      "description": "As a user, I want the app to support both tap and drag interactions so that I can use whichever method is most convenient for my device.",
       "acceptanceCriteria": [
-        "Dragging an item from Selected to Ingredients removes it from Selected",
-        "Ingredients list restores the item in a consistent order",
+        "Desktop users can continue using drag-and-drop as before",
+        "Mobile users can use tap/click to move ingredients",
+        "Both interaction methods work simultaneously without conflicts",
+        "The app detects the appropriate interaction method based on device capabilities or user preference",
         "Typecheck passes",
-        "Verify in browser using dev-browser skill"
+        "Verify in browser using dev-browser skill with both desktop and mobile viewports"
       ],
       "priority": 3,
       "passes": true,
-      "notes": ""
+      "notes": "Implemented device detection via touch/mouse events, drag tracking to prevent click conflicts, and dynamic cursor styling based on device type"
     },
     {
-      "id": "US-004",
-      "title": "Show matching cocktails",
-      "description": "As a user, I want to see cocktails that match my selected alcohol so that I know what I can make.",
+      "id": "US-008",
+      "title": "Touch-friendly ingredient list",
+      "description": "As a mobile user, I want ingredient items to be easy to tap and visually distinct so that I can quickly select what I need.",
       "acceptanceCriteria": [
-        "Cocktails list updates whenever Selected changes",
-        "A cocktail appears if it has at least one ingredient in Selected",
-        "Empty state message appears when no cocktails match",
+        "Each ingredient item has sufficient padding for comfortable tapping",
+        "Items have clear visual boundaries (borders, backgrounds, or spacing)",
+        "Active/hover states provide clear feedback on touch",
+        "Items are spaced appropriately to prevent accidental taps",
+        "Long ingredient names wrap or truncate gracefully",
         "Typecheck passes",
-        "Verify in browser using dev-browser skill"
+        "Verify in browser using dev-browser skill with mobile viewport"
       ],
       "priority": 4,
       "passes": true,
-      "notes": ""
+      "notes": "Added visual boundaries with borders, backgrounds, and shadows. Increased spacing to space-y-2/sm:space-y-3. Enhanced hover/active states with border and shadow transitions. Added truncate class for long text. Selected items use emerald color scheme for clear distinction."
+    },
+    {
+      "id": "US-009",
+      "title": "Mobile-optimized cocktail display",
+      "description": "As a mobile user, I want to see matching cocktails in a format that's easy to read and scroll through on my small screen.",
+      "acceptanceCriteria": [
+        "Cocktail list is scrollable if it exceeds viewport height",
+        "Cocktail names and ingredients are clearly readable on mobile",
+        "Each cocktail item has appropriate spacing for touch interaction",
+        "Empty state message is visible and readable on mobile",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill with mobile viewport"
+      ],
+      "priority": 5,
+      "passes": true,
+      "notes": "Added scrollable container with max-h-[50vh]/sm:max-h-[60vh] and overflow-y-auto. Cocktail items now have visual boundaries with amber color scheme (border, background, shadow). Increased spacing to space-y-2/sm:space-y-3. Empty state styled consistently with other sections using dashed border and centered text."
     }
   ]
 }

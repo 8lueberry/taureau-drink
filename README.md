@@ -14,6 +14,8 @@ Users can drag alcohol from the "ingredients" list to the "selected" list, and t
 
 ## Quick Run
 
+The app is deployed here https://taureau-drink.web.app/
+
 The repo contains the result of the ralph loop project. If you want to run it locally you can run.
 
 ```bash
